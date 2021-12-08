@@ -92,7 +92,7 @@ def make_path(mat, da: DrawAnimation, prevNode: Node, presentNode: Node):
     if presentNode.visited != True:
         presentNode.visited = True
         mat = presentNode.draw_connection(mat, prevNode)
-        cv.waitKey(3)
+        cv.waitKey(2)
         da.draw("main_window", mat)
         if (not presentNode.endNode):
             # neighborsCircus = np.random.randint(len(presentNode.neighbors), size=len(presentNode.neighbors)-1)
