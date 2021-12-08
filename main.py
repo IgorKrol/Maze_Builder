@@ -92,11 +92,14 @@ def make_path(mat, da: DrawAnimation, prevNode: Node, presentNode: Node):
     if presentNode.visited != True:
         presentNode.visited = True
         mat = presentNode.draw_connection(mat, prevNode)
-        cv.waitKey(1)
+        cv.waitKey(3)
         da.draw("main_window", mat)
         if (not presentNode.endNode):
-            neighborsCircus = np.random.randint(len(presentNode.neighbors), size=len(presentNode.neighbors))
+            # neighborsCircus = np.random.randint(len(presentNode.neighbors), size=len(presentNode.neighbors)-1)
+            neighborsCircus = []
+            [neighborsCircus.append(i) for i in range (len(presentNode.neighbors))]
             random.shuffle(neighborsCircus)
+
             for n in neighborsCircus:
                 mat = make_path(mat, da, presentNode, presentNode.neighbors[n])
     return mat
